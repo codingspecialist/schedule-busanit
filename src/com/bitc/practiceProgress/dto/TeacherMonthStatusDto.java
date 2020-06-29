@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MonthTeacherStatusDto {
+public class TeacherMonthStatusDto {
 	String className;
-	List<Integer> time;	
+	List<MonthTime> monthTime;	
 }

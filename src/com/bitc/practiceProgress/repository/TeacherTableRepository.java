@@ -8,9 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bitc.practiceProgress.db.DBConn;
-import com.bitc.practiceProgress.dto.ProgressInputDto;
-import com.bitc.practiceProgress.dto.MonthTeacherStatusDto;
-import com.bitc.practiceProgress.dto.PracticeProgressDto;
+import com.bitc.practiceProgress.dto.MonthTime;
+import com.bitc.practiceProgress.dto.TeacherMonthStatusDto;
 import com.bitc.practiceProgress.model.ClassTable;
 import com.bitc.practiceProgress.model.TeacherTable;
 
@@ -29,7 +28,7 @@ public class TeacherTableRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
-	public MonthTeacherStatusDto findTime(int classId, String month) {
+	public TeacherMonthStatusDto findTime(int classId, String month) {
 		List<TeacherTable> teachers = findAll();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select ");
@@ -44,7 +43,7 @@ public class TeacherTableRepository {
 		}
 		sb.append("from dual");
 		final String SQL = sb.toString();
-		MonthTeacherStatusDto dto = new MonthTeacherStatusDto();
+		TeacherMonthStatusDto dto = new TeacherMonthStatusDto();
 		
 		try {
 			conn = DBConn.getConnection(); // DB에 연결
@@ -53,12 +52,15 @@ public class TeacherTableRepository {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				List<Integer> time = new ArrayList<Integer>();
+				List<MonthTime> monthTimes = new ArrayList<MonthTime>();
 				dto.setClassName(rs.getString(1));
-				for (int i=2; i<teachers.size()+2; i++) {
-					time.add(rs.getInt(i));
+				for (int i=0; i<teachers.size(); i++) {
+					MonthTime monthTime = new MonthTime();
+					monthTime.setTime(rs.getInt(i+2));
+					monthTime.setTeacharName(teachers.get(i).getTeacherName());
+					monthTimes.add(monthTime);
 				}
-				dto.setTime(time);
+				dto.setMonthTime(monthTimes);
 			}
 		
 			return dto;
