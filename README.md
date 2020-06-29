@@ -82,3 +82,14 @@ CREATE TABLE `practice_table` (
 
 ```
 
+### teacher_table
+
+```sql
+CREATE TABLE `teacher_table` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `teacher_name` varchar(300) DEFAULT NULL,
+  `teacher_type` varchar(20) DEFAULT NULL,
+  `teacher_part` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```

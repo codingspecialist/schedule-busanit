@@ -26,9 +26,11 @@
 
 		<div class="justify-content-between collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
+			    <li class="nav-item"><a class="nav-link" href="/practiceProgress/teachertable?cmd=input">강사등록</a></li>
 				<li class="nav-item"><a class="nav-link" href="/practiceProgress/classtable?cmd=input">훈련과정등록</a></li>
 				<li class="nav-item"><a class="nav-link" href="/practiceProgress/practicetable?cmd=input">시간표등록</a></li>
 				<li class="nav-item"><a class="nav-link" href="/practiceProgress/classtable?cmd=home">진행상황</a></li>
+				<li class="nav-item"><a class="nav-link" href="/practiceProgress/teachertable?cmd=status">월간강사배정현황</a></li>
 			</ul>
 		</div>
 	</nav>

@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bitc.practiceProgress.action.Action;
 import com.bitc.practiceProgress.dto.ProgressInputDto;
+import com.bitc.practiceProgress.model.TeacherTable;
 import com.bitc.practiceProgress.dto.PracticeProgressDto;
 import com.bitc.practiceProgress.repository.ClassTableRepository;
 import com.bitc.practiceProgress.repository.PracticeTableRepository;
+import com.bitc.practiceProgress.repository.TeacherTableRepository;
 
 public class ClassTableInputAction implements Action{
 
@@ -23,7 +25,7 @@ public class ClassTableInputAction implements Action{
 		
 		ClassTableRepository classTableRepository = ClassTableRepository.getInstance();
 		PracticeTableRepository practiceTableRepository = PracticeTableRepository.getInstance();
-		
+		TeacherTableRepository teacherTableRepository = TeacherTableRepository.getInstance();
 		
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
@@ -57,9 +59,11 @@ public class ClassTableInputAction implements Action{
 		
 		List<ProgressInputDto> pids = classTableRepository.findClassNameHomeroomProf();
 		List<PracticeProgressDto> ppds = practiceTableRepository.findPracticeNow(classTime, classDate, idList);
+		List<TeacherTable> teachers = teacherTableRepository.findAll();
 		
 		request.setAttribute("pids", pids);
 		request.setAttribute("ppds", ppds);
+		request.setAttribute("teachers", teachers);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("/input/inputprogress.jsp");
 		dis.forward(request, response);

@@ -77,8 +77,13 @@ thead tr th:hover {
 			<div class="input-group-prepend">
 				<span class="input-group-text">담임교사</span>
 			</div>
-			<input name="homeroomProf" type="text" class="form-control" placeholder="이름을 입력하세요" required="required">
-			
+			<select name="homeroomProf" required="required">
+				<option value="">선택</option>
+				<c:forEach var="teacher" items="${teachers}">
+					<option value="${teacher.teacherName}">${teacher.teacherName}</option>
+				</c:forEach>
+			</select>
+		
 		</div>
 		<div class="text-center">
 			<input class="btn btn-outline-primary" type="submit" value="등록하기">
