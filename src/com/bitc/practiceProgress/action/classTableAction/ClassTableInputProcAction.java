@@ -41,7 +41,7 @@ public class ClassTableInputProcAction implements Action{
 		
 		if(result == 1) {
 			
-			Script.href("등록에 성공하였습니다.", "/practiceProgress/classtable?cmd=input", response);
+			Script.href("등록에 성공하였습니다.", "/busanit/classtable?cmd=input", response);
 			
 		} else {
 			Script.back("등록에 실패하였습니다.", response);

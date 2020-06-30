@@ -12,23 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bitc.practiceProgress.action.Action;
 import com.bitc.practiceProgress.dto.ProgressInputDto;
-import com.bitc.practiceProgress.model.TeacherTable;
 import com.bitc.practiceProgress.dto.PracticeProgressDto;
 import com.bitc.practiceProgress.repository.ClassTableRepository;
 import com.bitc.practiceProgress.repository.PracticeTableRepository;
 import com.bitc.practiceProgress.repository.TeacherTableRepository;
+import com.bitc.practiceProgress.util.Script;
 
-public class TeacherTableInputAction implements Action{
+public class TeacherTableDeleteAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int id = Integer.parseInt(request.getParameter("id"));
 		TeacherTableRepository repository = TeacherTableRepository.getInstance();
-		List<TeacherTable> teachers = repository.findAll();
+		int result = repository.delete(id);
 		
-		request.setAttribute("teachers", teachers);
-		RequestDispatcher dis = request.getRequestDispatcher("/input/inputteacher.jsp");
-		dis.forward(request, response);
+		if(result == 1) {
+			Script.href("삭제 성공", "/busanit/teachertable?cmd=input", response);
+		}else {
+			Script.back("삭제에 실패하였습니다", response);
+		}
 	}
 }
 

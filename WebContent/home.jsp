@@ -24,7 +24,7 @@ td {
 </style>
 
 <div class="container-fluid" style="font-size: 12px;">
-	<h2>훈련진행상황</h2>
+	<h2>진행중과정</h2>
 	<br />
 	<table class="table table-bordered text-center">
 		<thead>

@@ -4,8 +4,14 @@
 ### 배포시 주의할 점
 WebContent/excelfile 폴더 생성해서 war만들기
 
+### 엑셀 파일 수정시 주의할 점
+![blog](https://postfiles.pstatic.net/MjAyMDA2MzBfMjM0/MDAxNTkzNDk3ODI3ODc3.3P0z-iEIOsge1-Ef6xYfRapAZgiOPEVbyUj5rllAZdsg.TJMoCg8iz9XDdYTjtfHlYFuJyi-JHmFeHlOt4ANiEHIg.PNG.getinthere/Screenshot_1.png?type=w773)
+
+### 엑셀 샘플
+https://blog.naver.com/getinthere/222016784944
 
 ### MySQL 한글 설정
+```ini
 [client]
 default-character-set=utf8
 
@@ -17,7 +23,7 @@ collation-server = utf8_unicode_ci
 init-connect='SET NAMES utf8'
 init_connect='SET collation_connection = utf8_general_ci'
 character-set-server=utf8
-
+```
 
 ### 스키마 생성
 

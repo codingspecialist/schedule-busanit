@@ -87,7 +87,7 @@
 
 			var popupY = (window.screen.height / 2) - (800 / 2);
 			
-			var pop = window.open("/practiceProgress/practicetable?cmd=statistics&id="+id+"&room="+room+"&classOpen="+classOpen+"&classClose="+classClose, "pop",
+			var pop = window.open("/busanit/practicetable?cmd=statistics&id="+id+"&room="+room+"&classOpen="+classOpen+"&classClose="+classClose, "pop",
 			"width=700, height=630, left="+ popupX + ", top="+ popupY+", scrollbars=yes, resizable=yes");
 			
 		}
@@ -100,7 +100,7 @@
 
 			var popupY = (window.screen.height / 2) - (630 / 2);
 			
-			var pop = window.open("/practiceProgress/practicetable?cmd=changeExcel&id="+id, "pop",
+			var pop = window.open("/busanit/practicetable?cmd=changeExcel&id="+id, "pop",
 			"width=700, height=630, left="+ popupX + ", top="+ popupY+", scrollbars=yes, resizable=yes");
 			
 		}
@@ -113,7 +113,7 @@
 
 			var popupY = (window.screen.height / 2) - (300 / 2);
 			
-			var pop = window.open("/practiceProgress/practicetable?cmd=addExcel&id="+id, "pop",
+			var pop = window.open("/busanit/practicetable?cmd=addExcel&id="+id, "pop",
 			"width=570, height=300, left="+ popupX + ", top="+ popupY+", scrollbars=yes, resizable=yes");
 			
 		}
@@ -123,7 +123,7 @@
 			$.ajax({
 				
 				type: "get",
-				url: "/practiceProgress/practicetable?cmd=deActivateProc&id="+id,
+				url: "/busanit/practicetable?cmd=deActivateProc&id="+id,
 				dataType: "text"
 				
 			}).done(function(result) {
@@ -143,7 +143,7 @@
 			$.ajax({
 				
 				type: "get",
-				url: "/practiceProgress/practicetable?cmd=activateProc&id="+id+"&room="+room,
+				url: "/busanit/practicetable?cmd=activateProc&id="+id+"&room="+room,
 				dataType: "text"
 				
 			}).done(function(result) {

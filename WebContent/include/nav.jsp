@@ -19,18 +19,18 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="/practiceProgress/classtable?cmd=home">practiceProgress</a>
+		<a class="navbar-brand" href="/busanit/classtable?cmd=home">부산IT 과정관리</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="justify-content-between collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-			    <li class="nav-item"><a class="nav-link" href="/practiceProgress/teachertable?cmd=input">강사등록</a></li>
-				<li class="nav-item"><a class="nav-link" href="/practiceProgress/classtable?cmd=input">훈련과정등록</a></li>
-				<li class="nav-item"><a class="nav-link" href="/practiceProgress/practicetable?cmd=input">시간표등록</a></li>
-				<li class="nav-item"><a class="nav-link" href="/practiceProgress/classtable?cmd=home">진행상황</a></li>
-				<li class="nav-item"><a class="nav-link" href="/practiceProgress/teachertable?cmd=status">월간강사배정현황</a></li>
+			    <li class="nav-item"><a class="nav-link" href="/busanit/classtable?cmd=home">진행중과정</a></li>
+			    <li class="nav-item"><a class="nav-link" href="/busanit/teachertable?cmd=status">월간강사배정현황</a></li>
+			    <li class="nav-item"><a class="nav-link" href="/busanit/teachertable?cmd=input">강사등록</a></li>
+				<li class="nav-item"><a class="nav-link" href="/busanit/classtable?cmd=input">훈련과정등록</a></li>
+				<li class="nav-item"><a class="nav-link" href="/busanit/practicetable?cmd=input">시간표등록</a></li>
 			</ul>
 		</div>
 	</nav>

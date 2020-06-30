@@ -275,6 +275,36 @@ public class ClassTableRepository {
 		return null;
 	}
 	
+	public List<Integer> findTrueRoomListSort() {
+		final String SQL = "SELECT id FROM class_table WHERE status = 'true'  order by class_part desc";
+		
+		List<Integer> roomList = null;
+		
+		try {
+			conn = DBConn.getConnection(); // DB에 연결
+			pstmt = conn.prepareStatement(SQL);
+
+			rs = pstmt.executeQuery();
+			
+			roomList = new ArrayList<>();
+
+			while (rs.next()) {
+				
+				roomList.add(rs.getInt(1));
+				
+			}
+		
+			return roomList;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(TAG + "findTrueRoomListSort : " + e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+	
 	public List<Integer> findTrueRoomList() {
 		final String SQL = "SELECT room FROM class_table WHERE status = 'true' ";
 		
@@ -298,7 +328,7 @@ public class ClassTableRepository {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println(TAG + "findIdList : " + e.getMessage());
+			System.out.println(TAG + "findTrueRoomList : " + e.getMessage());
 		} finally {
 			DBConn.close(conn, pstmt, rs);
 		}

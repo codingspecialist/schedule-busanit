@@ -13,7 +13,7 @@
 <body>
 	<br />
 	<div class="container">
-		<form action="/practiceProgress/classtable?cmd=detailUpdateProc" method="post">
+		<form action="/busanit/classtable?cmd=detailUpdateProc" method="post">
 			<div class="text-center">
 				<h2>${classTable.room }호 상세보기</h2>
 				<input name="id" type="hidden" value="${classTable.id }"> 
@@ -131,12 +131,12 @@
 	
 	function deleteClass(id) {
 		
-		location.href = "/practiceProgress/classtable?cmd=detailDeleteProc&id="+id;
+		location.href = "/busanit/classtable?cmd=detailDeleteProc&id="+id;
 		
 // 		$.ajax({
 			
 // 			type: "get",
-// 			url: "/practiceProgress/classtable?cmd=detailDeleteProc&room"+room
+// 			url: "/busanit/classtable?cmd=detailDeleteProc&room"+room
 			
 // 		}).done(function(result) {
 			

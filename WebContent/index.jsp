@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="include/nav.jsp"%>
 <%
-	response.sendRedirect("/practiceProgress/classtable?cmd=home");
+	response.sendRedirect("/busanit/classtable?cmd=home");
 
 %>
 <%@include file="include/footer.jsp"%>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bitc.practiceProgress.action.Action;
+import com.bitc.practiceProgress.action.teacherTableAction.TeacherTableDeleteAction;
 import com.bitc.practiceProgress.action.teacherTableAction.TeacherTableInputAction;
 import com.bitc.practiceProgress.action.teacherTableAction.TeacherTableInputProcAction;
 import com.bitc.practiceProgress.action.teacherTableAction.TeacherTableStatusAction;
@@ -49,6 +50,8 @@ public class TeacherTableController extends HttpServlet {
 			return new TeacherTableInputProcAction();
 		} else if (cmd.equals("status")) {
 			return new TeacherTableStatusAction();
+		} else if (cmd.equals("delete")) {
+			return new TeacherTableDeleteAction();
 		} 
 
 		return null;

@@ -28,7 +28,7 @@ thead tr th:hover {
 <div class="container">
 	<h2>훈련과정 등록</h2>
 	<br />
-	<form action="/practiceProgress/classtable?cmd=inputProc" method="post">
+	<form action="/busanit/classtable?cmd=inputProc" method="post">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text">강의실</span>
@@ -62,7 +62,7 @@ thead tr th:hover {
 				<option value="">선택</option>
 				<option value="sw">정보기술개발</option>
 				<option value="de">디자인</option>
-				<option value="nw">네트웍보안</option>
+				<option value="nw">네트워크보안</option>
 			</select>
 			<div class="input-group-prepend">
 				<span class="input-group-text">개강일</span>
@@ -172,7 +172,7 @@ thead tr th:hover {
 
 		var popupY = (window.screen.height / 2) - (800 / 2);
 		
-		var pop = window.open("/practiceProgress/classtable?cmd=detail&room="+room, "pop",
+		var pop = window.open("/busanit/classtable?cmd=detail&room="+room, "pop",
 		"width=770, height=720, left="+ popupX + ", top="+ popupY+", scrollbars=yes, resizable=yes");
 		
 	}

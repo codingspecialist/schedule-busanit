@@ -42,7 +42,7 @@ public class TeacherTableInputProcAction implements Action{
 		int result = repository.save(teacher);
 		
 		if(result == 1 ) {
-			Script.href("강사 등록이 완료되었습니다", "index.jsp", response);
+			Script.href("강사 등록이 완료되었습니다", "/busanit/teachertable?cmd=input", response);
 		}else {
 			Script.back("강사 등록에 실패하였습니다.", response);
 		}

@@ -24,7 +24,7 @@
 	  	<br />
 	  <p>기존 훈련의 엑셀 데이터를 삭제하고 새 데이터를 입력합니다.</p>
 	  <br />
-	  <form action="/practiceProgress/practicetable?cmd=changeExcelProc" method="post" enctype="multipart/form-data">
+	  <form action="/busanit/practicetable?cmd=changeExcelProc" method="post" enctype="multipart/form-data">
 	    <div class="form-group">
 	      <input type="file" class="form-control-file border" name="file">
 	      <input type="hidden" value="${id }" name="id">
