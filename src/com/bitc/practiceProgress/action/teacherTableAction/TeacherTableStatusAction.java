@@ -20,13 +20,21 @@ import com.bitc.practiceProgress.repository.TeacherTableRepository;
 public class TeacherTableStatusAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat formater = new SimpleDateFormat("MM");
 		String currentMonth = formater.format(cal.getTime());
 		
 		SimpleDateFormat formater2 = new SimpleDateFormat("YYYY");
 		String currentYear = formater2.format(cal.getTime());
+		
+		if(request.getParameter("year") != null && request.getParameter("month") != null ) {
+			currentYear = request.getParameter("year");
+			currentMonth = request.getParameter("month");
+			System.out.println(currentYear);
+			System.out.println(currentMonth);
+		}
+		
+
 		
 		TeacherTableRepository teacherTableRepository = 
 				TeacherTableRepository.getInstance();
@@ -44,7 +52,7 @@ public class TeacherTableStatusAction implements Action{
 			dtos.add(dto);
 		}
 
-		List<Integer> monthCount = teacherTableRepository.findMonthCount(currentMonth);
+		List<Integer> monthCount = teacherTableRepository.findMonthCount(currentYear, currentMonth);
 		List<Integer> inTeacherCount = teacherTableRepository.findYearCount(currentYear, "전임강사");
 		List<Integer> outTeacherCount = teacherTableRepository.findYearCount(currentYear, "외래강사");
 		

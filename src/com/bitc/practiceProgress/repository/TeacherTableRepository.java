@@ -12,6 +12,7 @@ import com.bitc.practiceProgress.dto.MonthTime;
 import com.bitc.practiceProgress.dto.TeacherMonthStatusDto;
 import com.bitc.practiceProgress.model.ClassTable;
 import com.bitc.practiceProgress.model.TeacherTable;
+import com.bitc.practiceProgress.test.CurrentMonthTest;
 
 public class TeacherTableRepository {
 	private static final String TAG = "TeacherTableRepository : "; // TAG 생성 (오류 발견시 용이)
@@ -28,16 +29,16 @@ public class TeacherTableRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
-	public List<Integer> findMonthCount(String month) {
+	public List<Integer> findMonthCount(String currentYear, String currentMonth) {
 		List<TeacherTable> teachers = findAllSort();
 		List<Integer> monthCount = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select ");
 		for (int i=0; i<teachers.size(); i++) {
 			if(i == teachers.size()-1) {
-				sb.append("(select count(*) from practice_table where substr(class_date,6,2) = '"+month+"' and prof = '"+teachers.get(i).getTeacherName()+"') ");
+				sb.append("(select count(*) from practice_table p inner join class_table c on p.class_id = c.id where substr(p.class_date,1,4) = '"+currentYear+"' and substr(p.class_date,6,2) = '"+currentMonth+"' and p.prof = '"+teachers.get(i).getTeacherName()+"' and c.status = 'true') ");
 			}else {
-				sb.append("(select count(*) from practice_table where substr(class_date,6,2) = '"+month+"' and prof = '"+teachers.get(i).getTeacherName()+"'), ");
+				sb.append("(select count(*) from practice_table p inner join class_table c on p.class_id = c.id where substr(p.class_date,1,4) = '"+currentYear+"' and substr(p.class_date,6,2) = '"+currentMonth+"' and p.prof = '"+teachers.get(i).getTeacherName()+"' and c.status = 'true'), ");
 			}
 				
 		}
@@ -61,7 +62,7 @@ public class TeacherTableRepository {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println(TAG + "findAllCount : " + e.getMessage());
+			System.out.println(TAG + "findMonthCount : " + e.getMessage());
 		} finally {
 			DBConn.close(conn, pstmt, rs);
 		}

@@ -17,6 +17,28 @@ thead tr th:hover {
 </style>
 
 <div class="container">
+
+	<form action="/busanit/teachertable?cmd=status" class="form-inline"  method="post">
+		<input id="my_year" class="form-control" type="text" name="year" placeholder="년도 입력 : 예) 2020" required/>
+		<select class="form-control" name="month" required="required">
+			<option value="">선택</option>
+			<option value="01">01</option>
+			<option value="02">02</option>
+			<option value="03">03</option>
+			<option value="04">04</option>
+			<option value="05">05</option>
+			<option value="06">06</option>
+			<option value="07">07</option>
+			<option value="08">08</option>
+			<option value="09">09</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+		</select>
+		&nbsp;
+		<button class="btn btn-primary">월별 검색</button>
+	</form>
+	<hr/>
 	<table class="table">
 		<thead>
 			<tr>
@@ -96,8 +118,6 @@ thead tr th:hover {
 </div>
 
 
-<script>
-	
-</script>
+
 
 <%@include file="../include/footer.jsp"%>
